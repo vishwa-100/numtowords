@@ -1,6 +1,9 @@
 package numtowords
 
-import "fmt"
+import (
+	"fmt"
+	"math"
+)
 
 // MinNum is the minimum number that can be converted to words
 const MinNum = -999
@@ -25,7 +28,7 @@ func ConvertToWords(num int) (string, error) {
 	tens := [8]string{"twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"}
 
 	if num < 0 {
-		num = -num
+		num = int(math.Abs(float64(num)))
 		result = "minus "
 	}
 
